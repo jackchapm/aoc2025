@@ -31,7 +31,7 @@ mod tests {
     use super::*;
 
     #[test]
-    fn example_part_one() {
+    fn day_one_example() {
         let input = indoc! {"
             L68
             L30
