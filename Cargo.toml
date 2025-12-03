@@ -6,6 +6,7 @@ edition = "2024"
 [dependencies]
 clap = { version = "4.5.53", features = ["derive", "env"] }
 fancy-regex = "0.16.2"
+itertools = "0.14.0"
 regex = "1.12.2"
 reqwest = { version = "0.12.24", features = ["blocking"] }
 
