@@ -2,11 +2,7 @@ use crate::Problem;
 
 pub struct Day2;
 impl Problem for Day2 {
-    fn part_one(&self, input: &str) -> String {
-        todo!()
-    }
-
-    fn part_two(&self, input: &str) -> String {
-        todo!()
+    fn solve(&self, input: &str) -> (String, String) {
+        (String::new(), String::new())
     }
 }

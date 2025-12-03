@@ -66,12 +66,11 @@ fn main() {
             err!("Could not find file at {path}. Did you mean to run with --download?");
         };
 
-        let part_one = problem.part_one(&input);
-        let part_two = problem.part_two(&input);
+        let (part_one, part_two) = problem.solve(&input);
 
         println!("Day {day}");
         println!("--------");
-        println!("Part One: {part_one}");
-        println!("Part Two: {part_two}");
+        println!("Part One: {}", part_one.to_string());
+        println!("Part Two: {}", part_two.to_string());
     });
 }
