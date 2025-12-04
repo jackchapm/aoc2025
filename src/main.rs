@@ -3,6 +3,7 @@ pub(crate) use problem::*;
 mod days;
 
 use std::fs;
+use std::time::Instant;
 use clap::{Parser, builder::ArgPredicate, ValueHint};
 use reqwest::blocking::Client;
 use days::*;
@@ -67,11 +68,14 @@ fn main() {
             err!("Could not find file at {path}. Did you mean to run with --download?");
         };
 
+        let now = Instant::now();
         let (part_one, part_two) = problem.solve(&input);
+        let elapsed = now.elapsed();
 
         println!("Day {day}");
         println!("--------");
-        println!("Part One: {}", part_one.to_string());
-        println!("Part Two: {}", part_two.to_string());
+        println!("Part one: {}", part_one.to_string());
+        println!("Part two: {}", part_two.to_string());
+        println!("Time elapsed: {}ms", elapsed.as_millis());
     });
 }
