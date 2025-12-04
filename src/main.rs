@@ -1,6 +1,7 @@
 mod problem;
 pub(crate) use problem::*;
 mod days;
+mod util;
 
 use std::fs;
 use std::time::Instant;
@@ -20,7 +21,7 @@ struct Args {
     #[arg(long, default_value="true", default_value_if("days", ArgPredicate::IsPresent, "false"))]
     all_days: bool,
 
-    #[arg(long, help="Downloads missing input files", requires="session")]
+    #[arg(short='D', long, help="Downloads missing input files", requires="session")]
     download: bool,
 
     #[arg(long, hide=true, env="AOC_SESSION")]
@@ -36,7 +37,7 @@ macro_rules! err {
 
 fn main() {
     let args = Args::parse();
-    let numerical_days = if args.all_days { (1..=3).collect() } else { args.days };
+    let numerical_days = if args.all_days { (1..=4).collect() } else { args.days };
     let session = args.session.unwrap_or(String::new());
 
     if args.download && !fs::exists("inputs/").unwrap_or(false) {
@@ -48,6 +49,7 @@ fn main() {
             1 => Box::new(Day1),
             2 => Box::new(Day2),
             3 => Box::new(Day3),
+            4 => Box::new(Day4),
             _ => unimplemented!(),
         };
 
@@ -77,5 +79,6 @@ fn main() {
         println!("Part one: {}", part_one.to_string());
         println!("Part two: {}", part_two.to_string());
         println!("Time elapsed: {}ms", elapsed.as_millis());
+        println!();
     });
 }
