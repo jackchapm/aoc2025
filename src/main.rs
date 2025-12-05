@@ -37,7 +37,7 @@ macro_rules! err {
 
 fn main() {
     let args = Args::parse();
-    let numerical_days = if args.all_days { (1..=4).collect() } else { args.days };
+    let numerical_days = if args.all_days { (1..=5).collect() } else { args.days };
     let session = args.session.unwrap_or(String::new());
 
     if args.download && !fs::exists("inputs/").unwrap_or(false) {
@@ -50,6 +50,7 @@ fn main() {
             2 => Box::new(Day2),
             3 => Box::new(Day3),
             4 => Box::new(Day4),
+            5 => Box::new(Day5),
             _ => unimplemented!(),
         };
 
@@ -73,11 +74,10 @@ fn main() {
         let now = Instant::now();
         let (part_one, part_two) = problem.solve(&input);
         let elapsed = now.elapsed();
-
         println!("Day {day}");
         println!("--------");
-        println!("Part one: {}", part_one.to_string());
-        println!("Part two: {}", part_two.to_string());
+        println!("Part one: {}", part_one);
+        println!("Part two: {}", part_two);
         println!("Time elapsed: {}ms", elapsed.as_millis());
         println!();
     });

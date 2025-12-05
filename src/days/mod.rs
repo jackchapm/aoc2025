@@ -9,3 +9,4 @@ pub_mod!(day01);
 pub_mod!(day02);
 pub_mod!(day03);
 pub_mod!(day04);
+pub_mod!(day05);
