@@ -37,7 +37,7 @@ macro_rules! err {
 
 fn main() {
     let args = Args::parse();
-    let numerical_days = if args.all_days { (1..=5).collect() } else { args.days };
+    let numerical_days = if args.all_days { (1..=6).collect() } else { args.days };
     let session = args.session.unwrap_or(String::new());
 
     if args.download && !fs::exists("inputs/").unwrap_or(false) {
@@ -51,6 +51,7 @@ fn main() {
             3 => Box::new(Day3),
             4 => Box::new(Day4),
             5 => Box::new(Day5),
+            6 => Box::new(Day6),
             _ => unimplemented!(),
         };
 
